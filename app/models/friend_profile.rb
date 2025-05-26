@@ -1,4 +1,5 @@
 class FriendProfile < ApplicationRecord
   belongs_to :user
-  has_many :bookings, :reviews
+  has_many :bookings
+  has_many :reviews
 end
