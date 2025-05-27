@@ -1,0 +1,17 @@
+<div class="available-buddys">
+    <h2>Available Buddys</h2>
+    <div class="buddys-list">
+      <% @buddys.each do |buddy| %>
+        <div class="buddy-card">
+          <div class="buddy-image">
+            <%= image_tag "logo.jpg", class: "buddy-image" %>
+          </div>
+          <div class="buddy-info">
+            <h3><%= buddy.username %></h3>
+            <p><%= buddy.interest %></p>
+            <%= link_to "View Profile", friend_profile_path(buddy), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
