@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $background-app;
+}
+
+body {
+  background-color: $accent-app;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: $accent-app;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+p {
+  color: $primary-app;
+  font-size: 16px;
+  font-weight: 400;
+}
