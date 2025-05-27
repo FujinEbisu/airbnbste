@@ -4,13 +4,29 @@
   height: 400px;
   width: 70%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  flex-direction: column;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 8px;
   margin-top: 12px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: center;
+
+}
+.card-category p {
+  color: $background-app;
+  font-size: 32px;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.card-category .button-profile {
+  text-align: center;
+  margin-top: 16px;
+  width: 30%;
+  text-shadow: none;
+}
+
+.inside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,9 +1,6 @@
 <div class="available-buddys">
     <h2>Available Buddys</h2>
 <div class="container">
-  <div class="col-md-12">
-    <h1>Friend Profiles</h1>
-  </div>
   <div class="card-container">
     <% @friend_profiles.limit(6).each do |friend_profile| %>
       <%= link_to friend_profile_path(friend_profile) do %>

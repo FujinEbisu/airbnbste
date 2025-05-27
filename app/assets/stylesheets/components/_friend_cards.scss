@@ -9,23 +9,23 @@
       grid-template-columns: 1fr;
       padding: 0 10px;
     }
-    
+
     // Tablet: 2 columns
     @media (min-width: 768px) and (max-width: 1023px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     // Desktop: 3 columns (default)
     @media (min-width: 1024px) and (max-width: 1199px) {
       grid-template-columns: repeat(3, 1fr);
     }
-    
+
     // Large desktop: 4 columns
     @media (min-width: 1200px) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  
+
   .card {
     background-color: $background-app;
     border-radius: 10px;
@@ -34,66 +34,71 @@
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    
+
     // Mobile adjustments
     @media (max-width: 767px) {
       padding: 8px;
       border-radius: 8px;
     }
-    
+
     // Large desktop adjustments
     @media (min-width: 1200px) {
       padding: 8px;
     }
   }
-  
+
   .card-img-top {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    
+
     // Mobile: smaller image
     @media (max-width: 767px) {
       height: 150px;
     }
-    
+
     // Large desktop: larger image
     @media (min-width: 1200px) {
       height: 250px;
     }
   }
-  
+
   .card-title {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    
+
     // Mobile: smaller title
     @media (max-width: 767px) {
       font-size: 14px;
     }
-    
+
     // Tablet: medium title
     @media (min-width: 768px) and (max-width: 1023px) {
       font-size: 16px;
     }
-    
+
     // Large desktop: larger title
     @media (min-width: 1200px) {
       font-size: 18px;
     }
   }
-  
+
   .card-body {
     font-size: 14px;
-    
+
     // Mobile: smaller text
     @media (max-width: 767px) {
       font-size: 12px;
     }
-    
+
     // Large desktop: larger text
     @media (min-width: 1200px) {
       font-size: 14px;
     }
+  }
+
+  .available-buddys h2{
+    text-align: center;
+    margin-top: 32px;
   }
