@@ -1,16 +1,29 @@
-# create a dashboard to see all the "available" profiles
-# filter by rate, interest, day_rate range
-# order by date_created, day_rate, avg_review_rating
-# display the number of reviews for each profile
-# display username, iterest, day_rate, number of reviews, created_at
+<!-- create a dashboard to see all the "available" profiles -->
+<!-- filter by rate, interest, day_rate range -->
+<!-- order by date_created, day_rate, avg_review_rating -->
+<!-- display the number of reviews for each profile -->
+<!-- display username, iterest, day_rate, number of reviews, created_at -->
+<!-- cl_image_path(friend_profile.photo.key, height: 300, width: 400, crop: :fill) -->
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Friend Profiles</h1>
+  <div class="col-md-12">
+    <h1>Friend Profiles</h1>
+  </div>
+  
+  <div class="card-container">
+    <% @friend_profiles.each do |friend_profile| %>
+      <div class="card">
+        <div class="card-title">
+          <%= friend_profile.username %> 
         </div>
-        <div class="col-md-12">
-            <%= render "friend_profiles/friend_profile", friend_profile: @friend_profile %>
+        <div class="card-body">
+          Interest: <%= friend_profile.interest %><br>
+          Price per day: <%= friend_profile.day_rate.round(2) %> €<br>
+          Date created: <%= friend_profile.created_at.strftime("%d/%m/%Y") %><br>
+          Times booked: <%= friend_profile.bookings.count %><br>
         </div>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+

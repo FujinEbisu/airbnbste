@@ -1,4 +1,6 @@
 class FriendProfilesController < ApplicationController
+  before_action :set_friend_profile, only: [:show, :edit, :update, :destroy]
+
   def index
     @friend_profiles = FriendProfile.all
   end
