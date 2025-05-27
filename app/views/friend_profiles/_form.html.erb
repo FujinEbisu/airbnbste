@@ -1,0 +1,13 @@
+<%= simple_form_for friend_profile do |f| %>
+  <%= f.input :username %>
+<!--  <div class="row d-flex flex_row">-->
+  <%# selections.each.limit(3) do |selection| %>
+<!--  <div class="col">
+  <button class="btn btn-success" data-action="click->ask-hobbies#add"><%#=selection%></button>
+  </div>
+  <%# end %>-->
+<!--  </div>-->
+  <%= f.input :interest, as: :select, collection: ["sports_and_outdoors", "education", "competition", "Art collecting"]%>
+  <%= f.input :photo, as: :file%>
+  <%= f.submit %>
+<% end %>
