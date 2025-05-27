@@ -1,0 +1,16 @@
+# create a dashboard to see all the "available" profiles
+# filter by rate, interest, day_rate range
+# order by date_created, day_rate, avg_review_rating
+# display the number of reviews for each profile
+# display username, iterest, day_rate, number of reviews, created_at
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Friend Profiles</h1>
+        </div>
+        <div class="col-md-12">
+            <%= render "friend_profiles/friend_profile", friend_profile: @friend_profile %>
+        </div>
+    </div>
+</div>
