@@ -1,4 +1,10 @@
 <%# make a button with a link_to login_path %>
+<% unless user_signed_in? %>
 <div class="button-login">
   <%= link_to "Login", new_user_session_path %>
 </div>
+<% else %>
+<div class="button-login">
+  <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }%>
+</div>
+<% end %>
