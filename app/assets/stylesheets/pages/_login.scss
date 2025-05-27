@@ -25,3 +25,11 @@
     color: $primary-app;
   }
 }
+
+.form-actions a {
+  text-decoration: none;
+  color: inherit;
+}
+.form-actions a:hover {
+  color: $accent-app;
+}

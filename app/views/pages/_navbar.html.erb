@@ -11,19 +11,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item active">
             <%= render "pages/searchbar" %>
           </li>
+        <% end %>
           <li class="nav-item active">
 
 
 
           <% if user_signed_in? %>
-            <%= render "elements/button_profile"%>
-          <% else %>
-            <%= render "elements/button_profile", locals: {style: "display: none;"} %>
+            <%= render "elements/button_profile" %>
           <% end %>
+            <%= render "pages/button_login" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
