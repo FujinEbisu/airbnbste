@@ -1,0 +1,15 @@
+<%= simple_form_for friend_profile do |f| %>
+  <%= f.input :username %>
+<!--  <div class="row d-flex flex_row">-->
+  <%# selections.each.limit(3) do |selection| %>
+<!--  <div class="col">
+  <button class="btn btn-success" data-action="click->ask-hobbies#add"><%#=selection%></button>
+  </div>
+  <%# end %>-->
+<!--  </div>-->
+  <%= f.input :interest, as: :select, collection: FriendProfile::INTEREST_OPTIONS, input_html: {data: { controller: "tom-select"}}%>
+  <%= f.input :comments %>
+  <%= f.input :day_rate, as: :float, input_html: { step: 0.01 }%>
+  <%= f.input :photo, as: :file%>
+  <%= f.submit %>
+<% end %>
