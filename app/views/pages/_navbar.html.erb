@@ -18,19 +18,12 @@
           </li>
           <li class="nav-item active">
             <%= render "elements/button_profile" %>
-          <% end %>
           </li>
+        <% else %>
           <li class="nav-item active">
-            <%= render "pages/button_login" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= render "elements/button_login" %>
           </li>
         <% end %>
-        
-        <li class="nav-item active">
-          <%= render "elements/button_login" %>
-        </li>
         
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
