@@ -1,4 +1,6 @@
+<div class="container">
 <h2>Log in</h2>
+<div class="login-container">
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -16,5 +18,8 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+<div>
+<p style="color: #D9D9D9;"> Creez votre compte <%= render "devise/shared/links" %>
+</div>
+</div>
