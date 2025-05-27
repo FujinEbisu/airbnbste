@@ -27,3 +27,17 @@ body {
   align-items: center;
 
 }
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: $accent-app;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+p {
+  color: $primary-app;
+  font-size: 16px;
+  font-weight: 400;
+}
