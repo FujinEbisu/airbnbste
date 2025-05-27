@@ -9,7 +9,7 @@ class FriendProfilesController < ApplicationController
     @friend_profile = FriendProfile.find(params[:id])
     @booking = Booking.new
   end
- 
+
   def new
     @friend_profile = FriendProfile.new
   end
@@ -46,7 +46,7 @@ class FriendProfilesController < ApplicationController
   private
 
   def friend_profile_params
-    params.require(:friend_profile).permit(:username, :interest, :day_rate, :photo)
+    params.require(:friend_profile).permit(:username, :interest, :day_rate, :photo, :comments)
   end
 
   def set_friend_profile
