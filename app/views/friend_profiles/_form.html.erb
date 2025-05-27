@@ -8,6 +8,8 @@
   <%# end %>-->
 <!--  </div>-->
   <%= f.input :interest, as: :select, collection: ["sports_and_outdoors", "education", "competition", "Art collecting"]%>
+  <%= f.input :comments %>
+  <%= f.input :day_rate, as: :float, input_html: { step: 0.01 }%>
   <%= f.input :photo, as: :file%>
   <%= f.submit %>
 <% end %>
