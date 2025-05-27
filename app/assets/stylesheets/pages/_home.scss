@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+body {
+  background-color: #FFEA77;
+}
+
+#main-title {
+  font-size: 6rem;
+  font-weight: bolder;
+  color: #180E43;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 80px auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #F9F9E6;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.banner {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
