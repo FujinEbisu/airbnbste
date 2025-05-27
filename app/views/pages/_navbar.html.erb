@@ -16,10 +16,13 @@
             <%= render "pages/searchbar" %>
           </li>
           <li class="nav-item active">
+
+
+
           <% if user_signed_in? %>
-            <%= render "elements/button_profile" %>
+            <%= render "elements/button_profile"%>
           <% else %>
-            <%= render "pages/button_login" %>
+            <%= render "elements/button_profile", locals: {style: "display: none;"} %>
           <% end %>
           </li>
           <li class="nav-item">
