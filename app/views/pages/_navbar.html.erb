@@ -20,8 +20,9 @@
           <% if user_signed_in? %>
             <%= render "elements/button_profile" %>
           <% end %>
+          </li>
+          <li class="nav-item active">
             <%= render "pages/button_login" %>
-
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
