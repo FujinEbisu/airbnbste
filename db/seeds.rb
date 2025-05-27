@@ -10,7 +10,7 @@
 require 'faker'
 
 
-
+print "start seed"
 10.times do
   User.destroy_all
   FriendProfile.destroy_all
@@ -20,3 +20,4 @@ require 'faker'
   friend = FriendProfile.create!(username: Faker::Internet.username, interest: Faker::Lorem.paragraph, day_rate: rand(0.0..15.0), user: user )
   Booking.create!(start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, user: user2, friend_profile: friend  )
 end
+print "succesfully seeded"
