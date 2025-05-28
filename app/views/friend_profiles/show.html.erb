@@ -5,12 +5,15 @@
 
   <div class="row align-items-center mb-5">
     <div class="col-md-4 text-center mb-4 mb-md-0">
+    <% if @friend_profile.photo.attached? %>
       <%= image_tag cl_image_path(@friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-circle img-fluid shadow" %>
+      <% else %>
+       <%= image_tag "logo.jpg", class: "rounded-circle img-fluid shadow" %>
+      <% end %>
     </div>
     <div class="col-md-5">
       <h2 class="mb-2">Hello, I'm</h2>
       <h1 class="fw-bold"><%= @friend_profile.username %></h1>
-      <hr>
       <h5 class="mt-4">About me:</h5>
       <p><%= @friend_profile.comments %></p>
 
