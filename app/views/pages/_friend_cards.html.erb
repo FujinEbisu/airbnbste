@@ -8,7 +8,9 @@
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
       <h2 class=""><%= friend_profile.username %></h2>
-          <p class="card-text"> Interest: <%= friend_profile.interest %></p>
+        <%friend_profile.hobbies.each do |hobby| %>
+          <p class="card-text"> Hobbies<%= hobby.name %></p>
+        <% end %>
           <p class="card-text"> Price per day: <%= friend_profile.day_rate.round(2) %> €</p>
           <p class="card-text"> Date created: <%= friend_profile.created_at.strftime("%d/%m/%Y") %></p>
           <p class="card-text"> Times booked: <%= friend_profile.bookings.count %></p>
