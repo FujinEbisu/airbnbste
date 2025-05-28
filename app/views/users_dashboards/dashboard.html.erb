@@ -2,24 +2,29 @@
 <div class="row">
   <div class="col-md-4">
     <div class="container">
-      <div class="" style="background-color: blue;">
+      <div class="">
         <h1><%= @user.first_name %> <%= @user.last_name %></h1>
         <p><%= @user.email %></p>
         <p><%= @user.birthday.strftime("%d/%m/%Y") %> (<%= @years_old %> ans)</p>
       </div>
+      <%= render "elements/button_create_profile" %>
     </div>
   </div>
   <div class="col-md-7 ">
-    <div class="container" style="background-color: purple;">
+    <div class="container" data-controller="toggle">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Much longer nav link</a>
+          <a class="nav-link active" data-action="click->toggle#toggleTargets">Go to my Bookings</a>
         </li>
       </ul>
+    <div data-toggle-target="hideable" hidden>
+      <h3>My Bookings</h3>
+
     </div>
-   </div>
+    <div data-toggle-target="hideable">
+      <h3>My Profiles</h3>
+        <%= render "users_dashboards/friend_cards" %>
+    </div>
+    </div>
 </div>
 
