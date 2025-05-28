@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:destroy]
   end
 
-  resources :bookings, only: [:index, :show, :create, :destroy]
-  resources :friend_profiles
+  resources :bookings, only: [:index, :show, :destroy]
+  resources :friend_profiles do
+    resources :bookings, only: [:create]
+  end
 end

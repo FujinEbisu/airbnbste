@@ -8,11 +8,15 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require "json"
+require "open-uri"
+require 'net/http'
 
 print "start destroy"
 User.destroy_all
 FriendProfile.destroy_all
 Booking.destroy_all
+Hobby.destroy_all
 print "succesfully destroyed"
 
 print "start seed"
@@ -23,3 +27,16 @@ print "start seed"
   Booking.create!(start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, user: user2, friend_profile: friend  )
 end
 print "succesfully seeded"
+
+print "start hobbies"
+150.times do
+uri = URI('https://api.api-ninjas.com/v1/hobbies')
+request = Net::HTTP::Get.new(uri)
+request["X-Api-Key"] = ENV["API_NINJAS_KEY"]
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+response = http.request(request)
+data = JSON.parse(response.body)
+  Hobby.create!(name: data["hobby"])
+end
+print "succesfully seeded hobbies"

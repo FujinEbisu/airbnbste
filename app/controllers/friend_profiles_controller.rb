@@ -15,9 +15,15 @@ class FriendProfilesController < ApplicationController
   end
 
   def create
+    @hobbies_id = friend_profile_params["hobbies_ids"]
     @friend_profile = FriendProfile.new(friend_profile_params)
+
     @friend_profile.user = current_user
+
     if @friend_profile.save
+      @hobbies_id.each do |hobby_id|
+        Interrest.new(hobbie_id: hobby_id, friend_profile: @friend_profile).save
+      end
       redirect_to friend_profile_path(@friend_profile), notice: 'Friend profile was successfully created.'
     else
       render :new, status: :unprocessable_entity
@@ -46,7 +52,7 @@ class FriendProfilesController < ApplicationController
   private
 
   def friend_profile_params
-    params.require(:friend_profile).permit(:username, :interest, :day_rate, :photo, :comments)
+    params.require(:friend_profile).permit(:username, :day_rate, :photo, :comments, hobbies_ids: [])
   end
 
   def set_friend_profile
