@@ -18,7 +18,9 @@
       <p><%= @friend_profile.comments %></p>
 
       <h5 class="mt-4">My main interest:</h5>
-      <p><%= @friend_profile.interest %></p>
+      <%@friend_profile.hobbies.each do |hobby| %>
+        <p><%= hobby.name %></p>
+      <% end %>
     </div>
     <div class="col-md-3">
       <div class="card shadow p-4 text-center">
@@ -26,11 +28,11 @@
           <%= number_to_currency(@friend_profile.day_rate, unit: "€", precision: 2) %> / day
         </h3>
         <div data-controller="toggle" class="mt-5">
-        <button data-action="click->toggle#book">Book me</button>
-        <div data-toggle-target="togglableElement" class="d-none">
-        <%= render "formbooking", booking: @booking %>
+          <button data-action="click->toggle#book">Book me</button>
+          <div data-toggle-target="togglableElement" class="d-none">
+          <%= render "formbooking", booking: @booking, friend_profile: @friend_profile %>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
