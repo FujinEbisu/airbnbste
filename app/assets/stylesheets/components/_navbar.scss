@@ -4,6 +4,7 @@
   margin-top: -16px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  box-shadow: 0 0px 4px rgba(250, 181, 70, 0.5);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,4 +13,24 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 48 px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-toggle {
+  font-weight: bolder;
+}
+
+.logout-menu {
+  color: $accent-app;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.navbar-lewagon .dropdown-menu {
+  text-align: center;
+  background-color: $background-app;
+  border-radius: 8px;
+  border: $accent-app 1px solid;
 }
