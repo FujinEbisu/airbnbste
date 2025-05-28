@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_28_084952) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_28_095851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,18 +67,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_28_084952) do
   end
 
   create_table "hobbies", force: :cascade do |t|
-    t.string "hobbie"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "interrests", force: :cascade do |t|
-    t.bigint "hobbie_id", null: false
+    t.bigint "hobby_id", null: false
     t.bigint "friend_profile_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_profile_id"], name: "index_interrests_on_friend_profile_id"
-    t.index ["hobbie_id"], name: "index_interrests_on_hobbie_id"
+    t.index ["hobby_id"], name: "index_interrests_on_hobby_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -110,6 +110,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_28_084952) do
   add_foreign_key "bookings", "users"
   add_foreign_key "friend_profiles", "users"
   add_foreign_key "interrests", "friend_profiles"
-  add_foreign_key "interrests", "hobbies", column: "hobbie_id"
+  add_foreign_key "interrests", "hobbies"
   add_foreign_key "reviews", "friend_profiles"
 end
