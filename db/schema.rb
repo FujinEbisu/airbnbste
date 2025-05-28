@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_27_134747) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_28_084952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +61,24 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_27_134747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comments"
+    t.string "address"
+    t.integer "radius"
     t.index ["user_id"], name: "index_friend_profiles_on_user_id"
+  end
+
+  create_table "hobbies", force: :cascade do |t|
+    t.string "hobbie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interrests", force: :cascade do |t|
+    t.bigint "hobbie_id", null: false
+    t.bigint "friend_profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_profile_id"], name: "index_interrests_on_friend_profile_id"
+    t.index ["hobbie_id"], name: "index_interrests_on_hobbie_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -92,5 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_27_134747) do
   add_foreign_key "bookings", "friend_profiles"
   add_foreign_key "bookings", "users"
   add_foreign_key "friend_profiles", "users"
+  add_foreign_key "interrests", "friend_profiles"
+  add_foreign_key "interrests", "hobbies", column: "hobbie_id"
   add_foreign_key "reviews", "friend_profiles"
 end

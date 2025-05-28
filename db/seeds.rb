@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require "json"
+require "open-uri"
 
 print "start destroy"
 User.destroy_all

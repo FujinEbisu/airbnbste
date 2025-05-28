@@ -52,6 +52,8 @@ gem "sassc-rails"
 gem "devise"
 gem 'faker'
 gem "cloudinary"
+gem 'open-uri'
+gem "json"
 
 group :development, :test do
   gem "dotenv-rails"
