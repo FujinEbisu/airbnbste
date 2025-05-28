@@ -7,7 +7,7 @@
   </div>
   <%# end %>-->
 <!--  </div>-->
-  <%= f.input :interest, as: :select, collection: FriendProfile::INTEREST_OPTIONS, input_html: {data: { controller: "tom-select"}}%>
+  <%= f.input :hobbies_ids, as: :select, collection: Hobbie.all, input_html: {data: { controller: "tom-select"}}, multiple: true, include_hidden: false%>
   <%= f.input :comments %>
   <%= f.input :day_rate, as: :float, input_html: { step: 0.01 }%>
   <%= f.input :photo, as: :file%>

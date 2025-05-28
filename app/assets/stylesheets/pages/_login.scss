@@ -33,3 +33,20 @@
 .form-actions a:hover {
   color: $accent-app;
 }
+.inside-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-secondary {
+  color: $secondary-app
+}
+.p-secondary a {
+  color: $accent-app;
+  text-decoration: none;
+  &:hover {
+    color: $secondary-app;
+  }
+}

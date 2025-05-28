@@ -17,6 +17,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "pages/navbar" %>
+    <%# Test  %>
+    <% unless params[:action] == 'home' %>
+    <div class="empty-box">
+
+    </div>
+    <% end %>
+<%# end test %>
     <%= yield %>
   </body>
 </html>
