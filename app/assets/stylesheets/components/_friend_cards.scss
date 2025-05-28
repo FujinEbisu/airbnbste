@@ -26,6 +26,34 @@
     }
   }
 
+.card-container-profiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+    margin: 8px;
+    gap: 8px;
+    // Mobile: 1 column
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      padding: 0 10px;
+    }
+
+    // Tablet: 2 columns
+    @media (min-width: 768px) and (max-width: 1023px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Desktop: 3 columns (default)
+    @media (min-width: 1024px) and (max-width: 1199px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Large desktop: 4 columns
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   .card {
     background-color: $background-app;
     border-radius: 10px;

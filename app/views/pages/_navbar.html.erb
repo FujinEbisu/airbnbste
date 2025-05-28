@@ -23,7 +23,7 @@
           <li class="nav-item dropdown">
             <p class="dropdown-toggle button-login" id="navbarDropdown" data-bs-toggle="dropdown">Menu</p>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Dashbord", user_dashboard_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My Dashbord", users_dashboard_path(current_user), class: "dropdown-item" %>
               <%= link_to "Look for a Buddy",friend_profiles_path, class: "dropdown-item" %>
               <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "logout-menu" %>
             </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:destroy]
   end
 
-  get "/users_dashboard/:id", to: "users_dashboards#dashboard", as: :user_dashboard
+  get "/users_dashboard/:id", to: "users_dashboards#dashboard", as: :users_dashboard
   resources :bookings, only: [:index, :show, :create, :destroy]
   resources :friend_profiles
 end
