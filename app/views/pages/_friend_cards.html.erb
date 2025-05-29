@@ -1,23 +1,31 @@
 <div class="available-buddys">
     <h1>Available Buddys</h1>
-<div class="container">
-  <div class="card-container">
-    <% @friend_profiles.limit(6).each do |friend_profile| %>
-      <%= link_to friend_profile_path(friend_profile) do %>
-      <div class="card mb-3">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-      <h2 class=""><%= friend_profile.username %></h2>
-        <%friend_profile.hobbies.each do |hobby| %>
-          <p class="card-text"> Hobbies<%= hobby.name %></p>
-        <% end %>
-          <p class="card-text"> Price per day: <%= friend_profile.day_rate.round(2) %> €</p>
-          <p class="card-text"> Date created: <%= friend_profile.created_at.strftime("%d/%m/%Y") %></p>
-          <p class="card-text"> Times booked: <%= friend_profile.bookings.count %></p>
+    <div class="container">
+      <div class="card-container">
+        <% @friend_profiles.sample(6).each do |friend_profile| %>
+        <%= link_to friend_profile_path(friend_profile) do %>
+        <div class="card mb-3">
+          <div class="card-img">
+            <% if friend_profile.photo.attached? %>
+              <%= image_tag cl_image_path(friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow" %>
+            <% else %>
+              <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <h2 class=""><%= friend_profile.username %></h2>
+            <div class="hobbies-container">
+            <% friend_profile.hobbies.each do |hobby| %>
+             <span class="hobbies"><%= hobby.name %></span>
+            <% end %>
+            </div>
+            <p class="card-text"> <strong>Price per day:</strong> <%= friend_profile.day_rate.round(2) %> €</p>
+            <p class="card-text"> <strong>Date created:</strong> <%= friend_profile.created_at.strftime("%d/%m/%Y") %></p>
+            <p class="card-text"> <strong>Times booked:</strong> <%= friend_profile.bookings.count %></p>
+          </div>
         </div>
-      </div>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>
-  </div>
