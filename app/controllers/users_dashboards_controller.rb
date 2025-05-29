@@ -4,6 +4,7 @@ class UsersDashboardsController < ApplicationController
     def dashboard
         @years_old = Date.today.year - @user.birthday.year
         @friends_profiles = @user.friend_profiles
+        @bookings = @user.bookings
     end
 
     private

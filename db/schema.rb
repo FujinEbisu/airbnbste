@@ -63,6 +63,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_120231) do
     t.text "comments"
     t.string "address"
     t.integer "radius"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_friend_profiles_on_user_id"
   end
 

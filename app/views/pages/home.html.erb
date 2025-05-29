@@ -1,16 +1,21 @@
-
 <h1 id="main-title">Be my Buddy</h1>
 
 <div class="container">
   <% unless user_signed_in? %>
-  <div class="banner">
-
-   <%= render "pages/banner" %>
-  </div>
+    <div class="banner">
+      <%= render "pages/banner" %>
+    </div>
   <% end %>
+  
   <%= render "pages/friend_cards" %>
-</div>
+  
+    <div class="map" style="width: 100%; height: 500px;"
+         data-controller="map"
+         data-map-markers-value="<%= @markers.to_json %>"
+         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
 <%# Faire une navbar, checker pour faire un component a rappeler %>
 <%# Faire une banner avec l'accroche du site %>
 <%# faire le lien avec le login et les pages profil %>
-<%#  %>
