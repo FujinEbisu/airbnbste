@@ -1,20 +1,20 @@
 <div class="card-container-profiles">
-<% @friends_profiles.each do |friend_profile| %>
-  <% total_earnings = friend_profile.day_rate * friend_profile.bookings.count %>
-  <%= link_to friend_profile_path(friend_profile) do %>
-    <div class="card mb-3">
-      <div class="card-img">
-        <% if friend_profile.photo.attached? %>
-          <%= image_tag cl_image_path(friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow" %>
-        <% else %>
-          <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
-        <% end %>
+  <% @friends_profiles.each do |friend_profile| %>
+    <% total_earnings = friend_profile.day_rate * friend_profile.bookings.count %>
+    <%= link_to friend_profile_path(friend_profile) do %>
+      <div class="card mb-3">
+        <div class="card-img">
+          <% if friend_profile.photo.attached? %>
+            <%= image_tag cl_image_path(friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow" %>
+          <% else %>
+            <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
+          <% end %>
         </div>
         <div class="card-body">
           <h2 class=""><%= friend_profile.username %></h2>
           <div class="hobbies-container">
           <% friend_profile.hobbies.each do |hobby| %>
-           <span class="hobbies"><%= hobby.name %></span>
+          <span class="hobbies"><%= hobby.name %></span>
           <% end %>
           </div>
           <p class="card-text"> <strong>Price per day:</strong> <%= friend_profile.day_rate.round(2) %> €</p>
