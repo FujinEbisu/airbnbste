@@ -6,8 +6,8 @@ class FriendProfile < ApplicationRecord
   has_one_attached :photo
   has_many :hobbies, through: :interrests, source: :hobbie
   validates :username, presence: true, uniqueness: true
-
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   attr_accessor :hobbies_ids
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_28_123901) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_29_104939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_28_123901) do
     t.text "comments"
     t.string "address"
     t.integer "radius"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_friend_profiles_on_user_id"
   end
 
