@@ -1,7 +1,7 @@
 <div class="card-container">
   <div class="card-img">
       <% if @friend_profile.photo.attached? %>
-        <%= image_tag cl_image_path(@friend_profile.photo.key) %>
+        <%= image_tag  cl_image_path(@friend_profile.photo.key), class:"ms-3"%>
       <% else %>
       <%= image_tag "https://i.pinimg.com/736x/f6/be/74/f6be7465d76a69555ef100769f1c2a87.jpg" %>
     <% end %>
@@ -10,6 +10,7 @@
         <h2>Hello, I'm <%= @friend_profile.username %></h2>
         <h5 class="mt-4">About me:</h5>
         <p><%= @friend_profile.comments %></p>
+        <p><%= @friend_profile.address %></p>
 
         <h5 class="mt-4">My main interest:</h5>
         <div class="hobbies-container">
