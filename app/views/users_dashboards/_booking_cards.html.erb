@@ -1,17 +1,12 @@
 <div class="card-container-profiles">
 <% @bookings.each do |booking| %>
-  <%= link_to booking_path %>
   <div class="card mb-3">
+  <%= link_to booking_path(booking) do %>
   <img src="https://t4.ftcdn.net/jpg/08/09/09/83/360_F_809098361_z45jKPDGsYymmTJcFQvp3VGTPgGuY35L.jpg" class="card-img-top" alt="...">
   <div class="card-body">
   <h2 class=""><%= booking.friend_profile.username %></h2>
-      <%booking.hobbies.each do |hobby| %>
-        <p class="card-text"> Hobbies:<%= hobby.name %></p>
-      <% end %>
-      <p class="card-text"> Price per day: <%= booking.friend_profile.day_rate.round(2) %> €</p>
-      <p class="card-text"> Date created: <%= booking.created_at.strftime("%d/%m/%Y") %></p>
     </div>
   </div>
-  <% end %>
+<% end %>
 <% end %>
 </div>
