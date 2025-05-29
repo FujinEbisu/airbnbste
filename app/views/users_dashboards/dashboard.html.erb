@@ -6,7 +6,9 @@
         <p><%= @user.email %></p>
         <p><%= @user.birthday.strftime("%d/%m/%Y") %> (<%= @years_old %> ans)</p>
       </div>
-      <%= render "elements/button_create_profile" %>
+      <div class="button">
+        <%= render "elements/button_create_profile" %>
+      </div>
 
     </div>
   </div>
