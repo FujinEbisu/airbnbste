@@ -1,2 +1,22 @@
-
-
+<div class="card-container-profiles">
+<% @bookings.each do |booking| %>
+  <%= link_to booking_path(booking) do %>
+    <div class="card mb-3">
+        <div class="card-img">
+        <% if booking.friend_profile.photo.attached? %>
+          <%= image_tag cl_image_path(booking.friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow justify-content-center" %>
+        <% else %>
+          <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
+        <% end %>  
+        </div>
+        <div class="card-body">
+          <h2 class=""><%= booking.friend_profile.username %></h2>
+          <p class="card-text"> <strong>With :</strong> <%= booking.friend_profile.user.first_name %></p>
+          <p class="card-text"> <strong>Event:</strong> Starts <%= booking.start_date.strftime("%d/%m/%Y") %> to <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+          <p class="card-text"> <strong>Price per day:</strong> <%= booking.friend_profile.day_rate.round(2) %> €</p>
+          <p class="card-text"> <strong>Total price:</strong> <%= booking.friend_profile.day_rate.round(2) * (booking.end_date.strftime("%d/%m/%Y").to_i - booking.start_date.strftime("%d/%m/%Y").to_i + 1).to_i %> €</p>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>

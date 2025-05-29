@@ -8,6 +8,12 @@ class FriendProfilesController < ApplicationController
   def show
     @friend_profile = FriendProfile.find(params[:id])
     @booking = Booking.new
+    @markers = @friend_profile.geocode do |friend_profile|
+      {
+        lat: friend_profile,
+        lng: friend_profile
+      }
+  end
   end
 
   def new
@@ -52,7 +58,7 @@ class FriendProfilesController < ApplicationController
   private
 
   def friend_profile_params
-    params.require(:friend_profile).permit(:username, :day_rate, :photo, :comments, hobbies_ids: [])
+    params.require(:friend_profile).permit(:username, :day_rate, :photo, :comments, :address, hobbies_ids: [])
   end
 
   def set_friend_profile
