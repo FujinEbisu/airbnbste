@@ -52,12 +52,6 @@
     }
 
   }
-  .card-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-}
 
 .card-container-profiles {
     display: grid;
@@ -65,6 +59,14 @@
     padding: 16px;
     margin: 8px;
     gap: 8px;
+
+    .card-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+    }
+
 
     
     // Mobile: 1 column
