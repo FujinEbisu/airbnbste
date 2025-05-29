@@ -1,0 +1,4 @@
+<h2><%= friend_profile.username %></h2>
+<p><%= friend_profile.comments %></p>
+<p><%= friend_profile.hobbies.map(&:name).join(", ") %></p>
+<p><strong>€<%= friend_profile.day_rate %>/day</strong></p> 

@@ -8,11 +8,12 @@ class PagesController < ApplicationController
 
   private
   def map_markers
-    @friend_profiles = FriendProfile.all
-    @markers = @friend_profiles.geocode do |friend_profile|
+    @friend_profiles = FriendProfile.geocoded
+    @markers = @friend_profiles.map do |friend_profile|
       {
-        lat: friend_profile,
-        lng: friend_profile
+        lat: friend_profile.latitude,
+        lng: friend_profile.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {friend_profile: friend_profile})
       }
     end
   end
