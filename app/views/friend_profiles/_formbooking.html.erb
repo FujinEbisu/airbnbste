@@ -1,4 +1,4 @@
 <%= simple_form_for [friend_profile, booking] do |f| %>
-  <%= f.input :range_date, label: 'Choose date(s)', as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @datebookings.to_json }}%>
+  <%= f.input :range_date, label: 'Choose date(s)', as: :string, include_blank: false, input_html: { data: { controller: "datepicker", datepicker_dates_value: @datebookings.to_json }}%>
   <%= f.submit class:"button-login fw-bolder" %>
 <% end %>

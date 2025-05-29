@@ -23,6 +23,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to request.referer, notice: 'Booking profile was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -32,6 +41,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:range_date)
+    params.require(:booking).permit(:range_date, :accepted)
   end
 end

@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_29_120231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "end_date"
-    t.boolean "accepted", default: false
+    t.boolean "accepted"
     t.index ["friend_profile_id"], name: "index_bookings_on_friend_profile_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

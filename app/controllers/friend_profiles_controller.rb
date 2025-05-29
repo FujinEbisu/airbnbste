@@ -18,12 +18,12 @@ class FriendProfilesController < ApplicationController
         }
       end
     end
-      @markers = @friend_profile.geocode do |friend_profile|
-    {
-        lat: friend_profile,
-        lng: friend_profile
-      }
-  end
+  #     @markers = @friend_profile.geocode do |friend_profile|
+  #   {
+  #       lat: friend_profile,
+  #       lng: friend_profile
+  #     }
+  # end
   end
 
   def new
