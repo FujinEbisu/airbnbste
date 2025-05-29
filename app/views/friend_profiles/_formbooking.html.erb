@@ -1,4 +1,4 @@
 <%= simple_form_for [friend_profile, booking] do |f| %>
   <%= f.input :range_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "dates" }}%>
-  <%= f.submit class:"button-login fw-bolder" %>
+  <%= f.submit "Accept", class: "button" %>
 <% end %>
