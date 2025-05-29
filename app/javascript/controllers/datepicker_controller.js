@@ -4,13 +4,18 @@ import flatpickr from "flatpickr";
 // Connects to data-controller="datepicker"
 export default class extends Controller {
   static targets = ["dates"]
+  static values = {
+    dates: Array
+  }
+
   connect() {
-   this.calendar =  flatpickr(this.element,{
+    console.log(this.datesValue);
+    
+   flatpickr(this.element,{
     mode: "range",
     minDate: "today",
     dateFormat: "Y-m-d",
-    disable: [
-        ],
+    disable:
+      this.datesValue,
     })};
   }
-
