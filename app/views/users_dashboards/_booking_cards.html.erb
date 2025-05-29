@@ -7,7 +7,7 @@
           <%= image_tag cl_image_path(booking.friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow justify-content-center" %>
         <% else %>
           <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
-        <% end %>  
+        <% end %>
         </div>
         <div class="card-body">
           <h2 class=""><%= booking.friend_profile.username %></h2>
@@ -16,7 +16,18 @@
           <p class="card-text"> <strong>Price per day:</strong> <%= booking.friend_profile.day_rate.round(2) %> €</p>
           <p class="card-text"> <strong>Total price:</strong> <%= booking.friend_profile.day_rate.round(2) * (booking.end_date.strftime("%d/%m/%Y").to_i - booking.start_date.strftime("%d/%m/%Y").to_i + 1).to_i %> €</p>
         </div>
+          <div class="row">
+            <div class="col-12" >
+            <% if booking.accepted.nil? %>
+              <%= simple_form_for booking, data: { controller: "accept"} do |f| %>
+                <%= f.input :accepted, as: :hidden, input_html: { data: { accept_target: "hide" }}%>
+                <button data-action="click->accept#yes">accept</button>
+                <button data-action="click->accept#no">refuse</button>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
   <% end %>
+</div>
 </div>

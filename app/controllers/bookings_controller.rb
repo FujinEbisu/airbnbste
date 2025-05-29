@@ -10,17 +10,25 @@ class BookingsController < ApplicationController
   def create
     @friend_profile = FriendProfile.find(params[:friend_profile_id])
     @dates = booking_params[:range_date].split(' to ')
-    @booking = Booking.new
-    @booking.start_date = DateTime.parse(@dates[0])
-    @booking.end_date = DateTime.parse(@dates[1])
 
+    @booking = Booking.new
     @booking.friend_profile = @friend_profile
     @booking.user = current_user
-
+    @booking.start_date = @dates[0]
+    @booking.end_date = @dates[1]
     if @booking.save
       redirect_to friend_profile_path(current_user), notice: 'Booking was successfully created.'
     else
       render 'friend_profiles/show', status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to request.referer, notice: 'Booking profile was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -33,6 +41,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:range_date)
+    params.require(:booking).permit(:range_date, :accepted)
   end
 end

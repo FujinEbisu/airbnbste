@@ -8,11 +8,26 @@ class FriendProfilesController < ApplicationController
   def show
     @friend_profile = FriendProfile.find(params[:id])
     @booking = Booking.new
+
+    @datebookings = []
+    bookings = Booking.where(friend_profile_id: @friend_profile.id, accepted: true)
+    if bookings.any?
+      @datebookings = bookings.map do |booking|
+        {
+          from: booking.start_date.strftime('%Y-%m-%d'),
+          to: booking.end_date.strftime('%Y-%m-%d')
+        }
+      end
+    end
+
     @markers = if @friend_profile.geocoded?
       [{
         lat: @friend_profile.latitude,
         lng: @friend_profile.longitude,
-        info_window_html: render_to_string(partial: "info_map", locals: {friend_profile: @friend_profile})
+        info_window_html: render_to_string(
+          partial: "info_map",
+          locals: { friend_profile: @friend_profile }
+        )
       }]
     else
       []
