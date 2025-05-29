@@ -20,6 +20,5 @@
     <p class="card-text"> <strong>Total price:</strong> <%= @booking.friend_profile.day_rate.round(2) * (@booking.end_date.strftime("%d/%m/%Y").to_i - @booking.start_date.strftime("%d/%m/%Y").to_i + 1).to_i %> €</p>
     </div>
     </div>
- 
   </div>
 </div>

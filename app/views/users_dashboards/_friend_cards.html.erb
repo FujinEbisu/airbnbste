@@ -1,7 +1,7 @@
 <div class="card-container-profiles">
-  <% @friends_profiles.each do |friend_profile| %>
-    <% total_earnings = friend_profile.day_rate * friend_profile.bookings.count %>
-    <%= link_to friend_profile_path(friend_profile) do %>
+<% @friends_profiles.each do |friend_profile| %>
+  <% total_earnings = friend_profile.day_rate * friend_profile.bookings.count %>
+  <%= link_to friend_profile_path(friend_profile) do %>
     <div class="card mb-3">
       <div class="card-img">
         <% if friend_profile.photo.attached? %>
