@@ -8,6 +8,15 @@ class FriendProfilesController < ApplicationController
   def show
     @friend_profile = FriendProfile.find(params[:id])
     @booking = Booking.new
+    bookings = Booking.where(friend_profile_id: @friend_profile.id)
+    if bookings.any?
+      @datebookings = bookings.map do |booking|
+        {
+          from: booking.start_date.strftime('%Y-%m-%d'),
+          to: booking.end_date.strftime('%Y-%m-%d')
+        }
+      end
+    end
   end
 
   def new

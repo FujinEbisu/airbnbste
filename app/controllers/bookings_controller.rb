@@ -10,13 +10,12 @@ class BookingsController < ApplicationController
   def create
     @friend_profile = FriendProfile.find(params[:friend_profile_id])
     @dates = booking_params[:range_date].split(' to ')
-    @booking = Booking.new
-    @booking.start_date = DateTime.parse(@dates[0])
-    @booking.end_date = DateTime.parse(@dates[1])
 
+    @booking = Booking.new
     @booking.friend_profile = @friend_profile
     @booking.user = current_user
-
+    @booking.start_date = @dates[0]
+    @booking.end_date = @dates[1]
     if @booking.save
       redirect_to friend_profile_path(current_user), notice: 'Booking was successfully created.'
     else

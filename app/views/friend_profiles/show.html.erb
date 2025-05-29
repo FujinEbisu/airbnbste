@@ -3,7 +3,7 @@
     <h1 class="fw-bold">My Friend Profile</h1>
   </div>
 
-  <div class="row align-items-center mb-5">
+  <div class="row align-items-center mb-5" id="friend" data-id="<%= @allbooking %>">
     <div class="col-md-4 text-center mb-4 mb-md-0">
     <% if @friend_profile.photo.attached? %>
       <%= image_tag cl_image_path(@friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-circle img-fluid shadow" %>

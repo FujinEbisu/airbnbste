@@ -1,4 +1,5 @@
 <%= simple_form_for [friend_profile, booking] do |f| %>
-  <%= f.input :range_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_target: "dates" }}%>
+  <%= f.input :range_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @datebookings.to_json }}%>
   <%= f.submit %>
 <% end %>
+
