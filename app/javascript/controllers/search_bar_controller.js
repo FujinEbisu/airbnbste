@@ -11,14 +11,4 @@ export default class extends Controller {
   search(event) {
     console.log("Search input changed:", this.inputTarget.value)
   }
-
-  clear(event) {
-    event.preventDefault()
-    this.inputTarget.value = ""
-    window.location.href = "/"
-  }
-
-  submit(event) {
-    console.log("Search form submitted")
-  }
 }
