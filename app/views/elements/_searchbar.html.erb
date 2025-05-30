@@ -12,12 +12,5 @@
           }
       %>
     <%= submit_tag "Search", name: "", class: "btn btn-flat" %>
-    <% if params[:query].present? %>
-      <button type="button" 
-              class="btn btn-outline-secondary ms-2" 
-              data-action="click->search-bar#clear">
-        Clear
-      </button>
-    <% end %>
   <% end %>
 </div>

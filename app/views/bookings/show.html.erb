@@ -25,4 +25,5 @@
             </div>
     </div>
   </div>
+   <%= link_to "Delete booking", booking_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your profile? If yes, don't forget ton send a message to you buddy as soon as the chat is available " }, class: "button-delete mt-3" %>
 </div>
