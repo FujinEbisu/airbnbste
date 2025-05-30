@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to friend_profile_path(current_user), notice: 'Booking was successfully deleted.'
+    redirect_to users_dashboard_path(current_user), notice: 'Booking was successfully deleted.'
   end
 
   private
