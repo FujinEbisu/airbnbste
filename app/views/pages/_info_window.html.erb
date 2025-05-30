@@ -1,7 +1,14 @@
-<div class="map-info-window">
-  <h4><%= friend_profile.username %></h4>
-  <p><%= friend_profile.comments %></p>
-  <p><strong>Address:</strong> <%= friend_profile.address %></p>
-  <p><strong>Price:</strong> €<%= friend_profile.day_rate %>/day</p>
-  <%= link_to "View Details", friend_profile, class: "btn btn-sm btn-primary" %>
+<div class="map-info-window p-1 rounded-3">
+<div class="d-flex flex-row align-items-center justify-content-center">
+  <% if friend_profile.photo.attached? %>
+  <%= image_tag cl_image_path(friend_profile.photo.key, height: 100, width: 100, crop: :fill), class: "rounded-circle img-fluid shadow" %>
+<% else %>
+  <%= image_tag "logo.jpg", class: "rounded-circle img-fluid w-50 h-50" %>
+<% end %>
+  <div class="d-flex flex-column" style="margin-left: 10px;">
+    <h4><%= friend_profile.username %></h4>
+    <p><strong>Price:</strong> €<%= friend_profile.day_rate %>/day</p>
+    <%= link_to "View Details", friend_profile, class: "btn btn-sm btn-primary" %>
+  </div>
+</div>
 </div>
