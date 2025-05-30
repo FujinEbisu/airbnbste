@@ -1,3 +1,6 @@
-<h2><%= friend_profile.username %></h2>
-<p><%= friend_profile.comments %></p>
-<p><%= friend_profile.hobbies.map(&:name).join(", ") %></p>
+<div class="map-info-window">
+  <h4><%= friend_profile.username %></h4>
+  <p><%= friend_profile.comments %></p>
+  <p><strong>Hobbies:</strong> <%= friend_profile.hobbies.map(&:name).join(", ") %></p>
+  <p><strong>Address:</strong> <%= friend_profile.address %></p>
+</div>

@@ -1,6 +1,7 @@
-<%= link_to friend_profile_path(friend_profile) do %>
-<h2><%= friend_profile.username %></h2>
-<p><%= friend_profile.comments %></p>
-<p><%= friend_profile.hobbies.map(&:name).join(", ") %></p>
-<p><strong>€<%= friend_profile.day_rate %>/day</strong></p> 
-<% end %>
+<div class="map-info-window">
+  <h4><%= friend_profile.username %></h4>
+  <p><%= friend_profile.comments %></p>
+  <p><strong>Address:</strong> <%= friend_profile.address %></p>
+  <p><strong>Price:</strong> €<%= friend_profile.day_rate %>/day</p>
+  <%= link_to "View Details", friend_profile, class: "btn btn-sm btn-primary" %>
+</div>

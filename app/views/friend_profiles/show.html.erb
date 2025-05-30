@@ -1,5 +1,5 @@
-<div class="card-container" data-controller="admin">
-  <div class="card-img" data-userid="<%= @friend_profile.user_id %>">
+<div class="friend-profile-container">
+  <div class="card-img">
       <% if @friend_profile.photo.attached? %>
         <%= image_tag  cl_image_path(@friend_profile.photo.key), class:"ms-3"%>
       <% else %>
