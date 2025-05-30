@@ -45,3 +45,12 @@ p {
 a {
   text-decoration: none;
 }
+
+.container-inside-home {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #F9F9E6;
+  padding: 20px;
+  border-radius: 16px;
+  flex:2;
+}
