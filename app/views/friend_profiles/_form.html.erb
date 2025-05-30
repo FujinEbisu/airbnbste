@@ -9,7 +9,11 @@
 <!--  </div>-->
   <%= f.input :hobbies_ids, as: :select, collection: Hobbie.all, input_html: {data: { controller: "tom-select"}}, multiple: true, include_hidden: false%>
   <%= f.input :comments %>
-  <%= f.input :address %>
+  <%= f.input :address,
+  input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                      wrapper_html: {data: {controller: "address-autocomplete", 
+                      address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+                      
   <%= f.input :day_rate, as: :float, input_html: { step: 0.01 }%>
   <%= f.input :photo, as: :file%>
   <%= f.submit "Add your profile", class: "button" %>
