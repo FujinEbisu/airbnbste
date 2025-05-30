@@ -1,7 +1,8 @@
 <h1 id="main-title">Be my Buddy</h1>
 <div class="container mb-5">
-<%= render "elements/searchbar" %>
+  <%= render "elements/searchbar" %>
 </div>
+
 <% unless user_signed_in? %>
 <div class="container" style="width: 100%; height: 500px; margin: 16px auto;">
 <div class="banner">
@@ -11,10 +12,15 @@
 <% end %>
 
 <div class="container-home">
-
+  <% if params[:query].present? %>
   <div class="container-inside-home ms-3">
+      <%= render "pages/friend_cards_search" %>
+    </div>
+  <% else %>
+    <div class="container-inside-home ms-3">
       <%= render "pages/friend_cards" %>
     </div>
+  <% end %>
 
   <div class="map-home"
   data-controller="map"

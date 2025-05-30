@@ -1,0 +1,38 @@
+<div class="available-buddys">
+  <h1>Search Results for "<%= params[:query] %>"</h1>
+  <div class="card-container">
+  <% if @friend_profiles.any? %>
+      <% @friend_profiles.each do |friend_profile| %>
+      <%= link_to friend_profile_path(friend_profile) do %>
+        <div class="card">
+          <div class="card-img">
+            <% if friend_profile.photo.attached? %>
+              <%= image_tag cl_image_path(friend_profile.photo.key)%>
+            <% else %>
+              <%= image_tag "logo.jpg" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+          <%# <div class="card-body-content"> %>
+            <h2 class=""><%= friend_profile.username %></h2>
+            <div class="hobbies-container mb-2">
+              <% friend_profile.hobbies.each do |hobby| %>
+                <span class="hobbies"><%= hobby.name %></span>
+              <% end %>
+            </div>
+          <%# </div> %>
+          </div>
+          <div class="price">
+            <p class="card-text-price">
+              <%= friend_profile.day_rate.round(2) %> €/day
+            </p>
+            </div>
+            </div>
+            <% end %>
+            <% end %>
+            <% else %>
+              <em>Sorry, no profiles found.</em>
+            <% end %>
+            </div>
+            </div>
+            
