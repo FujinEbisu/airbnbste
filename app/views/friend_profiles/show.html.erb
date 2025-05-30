@@ -1,5 +1,5 @@
-<div class="friend-profile-container">
-  <div class="card-img card-img-width">
+<div class="friend-profile-container" data-controller="admin">
+  <div class="card-img card-img-width" data-userid="<%= @friend_profile.user_id %>">
       <% if @friend_profile.photo.attached? %>
         <%= image_tag  cl_image_path(@friend_profile.photo.key), class:"ms-3"%>
       <% else %>
@@ -24,8 +24,12 @@
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      
-        <div class="booking-card">
+<div class="booking-card">
+ <% if @friend_profile.user === current_user %>
+    <%= link_to "Edit profile", edit_friend_profile_path(@friend_profile), class: "button-edit" %>
+    <%= link_to "Delete profile", friend_profile_path(@friend_profile), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete your profile?" }, class: "button-delete mt-3" %>
+
+    <% else %>
           <h2> Spend a day with <%= @friend_profile.username %></h2>
           <h3 class="mb-3">
             <%= number_to_currency(@friend_profile.day_rate, unit: "€", precision: 2) %> / day
@@ -38,4 +42,6 @@
             </div>
           </div>
         </div>
+      <% end %>
+</div>
 </div>
