@@ -1,12 +1,15 @@
 .card-img {
-  width: 400px;
-  height: 100%;
   border-radius: 8px;
   // overflow: hidden;
   margin-right: 20px;
   // justify-content: center;
   align-content: center;
+  box-shadow: rgba(250, 181, 70, 0.5) 0px 0px 4px;
 
+}
+.card-img-width {
+  width: 400px;
+  height: 100%;
 }
 .card-img > img {
   width: 100%;
