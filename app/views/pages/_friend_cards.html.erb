@@ -1,7 +1,8 @@
 <div class="available-buddys">
   <h1>Available Buddys</h1>
   <div class="card-container">
-    <% @friend_profiles.sample(6).each do |friend_profile| %>
+  <% if @friend_profiles.any? %>
+      <% @friend_profiles.sample(6).each do |friend_profile| %>
       <%= link_to friend_profile_path(friend_profile) do %>
         <div class="card">
           <div class="card-img">
@@ -27,9 +28,13 @@
             <p class="card-text">
               <strong>Times booked:</strong> <%= friend_profile.bookings.count %>
             </p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+            </div>
+            </div>
+            <% end %>
+            <% end %>
+            <% else %>
+              <em>Sorry, no profiles found.</em>
+            <% end %>
+            </div>
+            </div>
+            
