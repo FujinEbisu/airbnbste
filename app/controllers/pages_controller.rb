@@ -13,7 +13,6 @@ class PagesController < ApplicationController
       SQL
       @friend_profiles = @friend_profiles.joins(:hobbies).where(sql_subquery, query: params[:query]).distinct
     end
-
     @markers = map_markers
   end
 
