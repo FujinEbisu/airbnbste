@@ -4,9 +4,9 @@
       <div class="card mb-3">
         <div class="card-img">
           <% if booking.friend_profile.photo.attached? %>
-            <%= image_tag cl_image_path(booking.friend_profile.photo.key, height: 300, width: 300, crop: :fill), class: "rounded-5 img-fluid shadow justify-content-center" %>
+            <%= image_tag cl_image_path(booking.friend_profile.photo.key) %>
           <% else %>
-            <%= image_tag "logo.jpg", class: "rounded-5 img-fluid shadow" %>
+            <%= image_tag "logo.jpg" %>
           <% end %>
         </div>
         <div class="card-body">
@@ -16,17 +16,15 @@
           <p class="card-text"> <strong>Price per day:</strong> <%= booking.friend_profile.day_rate.round(2) %> €</p>
           <p class="card-text"> <strong>Total price:</strong> <%= booking.friend_profile.day_rate.round(2) * (booking.end_date.strftime("%d/%m/%Y").to_i - booking.start_date.strftime("%d/%m/%Y").to_i + 1).to_i %> €</p>
         </div>
-        <div class="row">
-          <div class="col-12" >
+        <div class="accept-decline-cont">
             <% if booking.accepted.nil? %>
-              <%= simple_form_for booking, data: { controller: "accept"} do |f| %>
+              <%= simple_form_for booking, data: { controller: "accept"}, html: { class: "d-flex"} do |f| %>
                 <%= f.input :accepted, as: :hidden, input_html: { data: { accept_target: "hide" }}%>
-                <button data-action="click->accept#yes">accept</button>
-                <button data-action="click->accept#no">refuse</button>
+                <button data-action="click->accept#yes" class="btn-accept fw-bolder">accept</button>
+                <button data-action="click->accept#no" class="btn-refuse fw-bolder">refuse</button>
               <% end %>
             <% end %>
-          </div>
-        </div>
+            </div>
       </div>
     <% end %>
   <% end %>
