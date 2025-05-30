@@ -6,7 +6,7 @@
   <div class="inside-card-booking">
     <div class="img-container-booking">
       <% if @booking.friend_profile.photo.attached? %>
-        <%= image_tag cl_image_path(@booking.friend_profile.photo.key) %>
+        <%= image_tag cl_image_path(@booking.friend_profile.photo.key, height: 250, width: 300, crop: :fill) %>
       <% else %>
         <%= image_tag "logo.jpg" %>
       <% end %>
