@@ -3,6 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import TC from "@rolemodel/turbo-confirm"
-
-TC.start()
