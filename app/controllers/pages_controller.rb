@@ -9,8 +9,7 @@ class PagesController < ApplicationController
   private
 
   def map_markers
-    @friend_profiles = FriendProfile.all
-    @markers = @friend_profiles.map do |friend_profile|
+    @friend_profiles.geocoded.map do |friend_profile|
       {
         lat: friend_profile.latitude,
         lng: friend_profile.longitude,

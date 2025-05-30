@@ -13,3 +13,36 @@
     top: 100px;
     z-index: 1000;
 }
+
+// Info window styling
+.map-info-window {
+  max-width: 250px;
+  
+  h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #FAB546;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    
+    &:hover {
+      background-color: #e09d35;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
