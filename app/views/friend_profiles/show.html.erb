@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container-friend">
   <div class="card-img">
       <% if @friend_profile.photo.attached? %>
         <%= image_tag  cl_image_path(@friend_profile.photo.key), class:"ms-3"%>
@@ -24,7 +24,7 @@
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      
+
         <div class="booking-card">
           <h2> Spend a day with <%= @friend_profile.username %></h2>
           <h3 class="mb-3">
