@@ -1,8 +1,8 @@
 <div class="row" style="margin: 16px">
   <div class="col-md-4">
     <div class="container">
-      <div class="">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <div class="d-flex flex-column align-items-center justify-content-center text-center">
+        <h2><%= @user.first_name %> <%= @user.last_name %><%= link_to edit_user_registration_path, class: "icon-edit m-2" do %><i class="fa-solid fa-user-pen"></i><% end %></h2>
         <p><%= @user.email %></p>
         <p><%= @user.birthday.strftime("%d/%m/%Y") %> (<%= @years_old %> ans)</p>
       </div>
