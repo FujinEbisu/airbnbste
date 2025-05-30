@@ -200,3 +200,61 @@
   align-items: flex-end;
   width: 100%
 }
+
+.accept-decline-cont {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 16px;
+
+.btn-accept {
+  color: #FAB546;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #F9F9E6;
+  border: #FAB546 2px solid;
+  margin: auto 8px;
+  box-shadow: #FAB546 0px 0px 4px;
+  transition: background 0.3s ease;
+  align-content: center;
+}
+
+.btn-accept a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bolder;
+}
+
+.btn-accept:hover {
+  background: #FAB546;
+  color: $background-app;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.btn-refuse {
+  color: $background-app;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: $secondary-app;
+  border: #FAB546 2px solid;
+  margin: auto 8px;
+  box-shadow: #FAB546 0px 0px 4px;
+  transition: background 0.3s ease;
+  align-content: center;
+}
+
+.btn-refuse a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bolder;
+}
+
+.btn-refuse:hover {
+  background: $background-app;
+  color: $secondary-app;
+  font-weight: bolder;
+  cursor: pointer;
+}
+}
