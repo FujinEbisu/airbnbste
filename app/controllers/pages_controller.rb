@@ -23,7 +23,8 @@ class PagesController < ApplicationController
       {
         lat: friend_profile.latitude,
         lng: friend_profile.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {friend_profile: friend_profile})
+        info_window_html: render_to_string(partial: "info_window",  locals: {friend_profile: friend_profile}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
