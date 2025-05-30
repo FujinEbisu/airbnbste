@@ -1,8 +1,8 @@
 <div class="available-buddys">
-  <h1>Available Buddys</h1>
+  <h1>Search Results for "<%= params[:query] %>"</h1>
   <div class="card-container">
   <% if @friend_profiles.any? %>
-      <% @friend_profiles.sample(6).each do |friend_profile| %>
+      <% @friend_profiles.each do |friend_profile| %>
       <%= link_to friend_profile_path(friend_profile) do %>
         <div class="card">
           <div class="card-img">

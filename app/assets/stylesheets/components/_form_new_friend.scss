@@ -41,3 +41,13 @@
   border-radius: 8px;
   color: $accent-app;
 }
+
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  background-color: $background-app;
+  border-radius: 8px;
+  color: $accent-app;
+  box-shadow: none;
+  border: #dee2e6 1px solid;
+}

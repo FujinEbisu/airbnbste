@@ -3,7 +3,25 @@ class PagesController < ApplicationController
 
   def home
     @friend_profiles = FriendProfile.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        friend_profiles.username @@ :query
+        OR friend_profiles.comments @@ :query
+        OR friend_profiles.address @@ :query
+        OR hobbies.name @@ :query
+      SQL
+      @friend_profiles = @friend_profiles.joins(:hobbies).where(sql_subquery, query: params[:query])
+    end
     @markers = map_markers
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        friend_profiles.username @@ :query
+        OR friend_profiles.comments @@ :query
+        OR friend_profiles.address @@ :query
+        OR friend_profiles.hobbies @@ :query
+      SQL
+      @friend_profiles = @friend_profiles.joins(:hobbies).where(sql_subquery, query: params[:query])
+    end
   end
 
   private
